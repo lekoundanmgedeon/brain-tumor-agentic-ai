@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Project outputs and uploads
+outputs/
+uploads/
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.tif
+*.tiff
+
+# Model / large assets
+models/*.pth
+models/*.safetensors
+models/hf_brain_tumor/
