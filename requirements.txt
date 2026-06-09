@@ -1,0 +1,62 @@
+# ============================================================
+# Brain Tumor Agentic AI — Requirements
+# ============================================================
+
+# --- Interface Streamlit ---
+streamlit>=1.35.0
+
+# --- Workflow Agentique ---
+langgraph>=0.2.0
+langchain-core>=0.2.0
+
+# --- Traitement d'images ---
+Pillow>=10.0.0
+numpy>=1.24.0
+opencv-python-headless>=4.8.0
+matplotlib>=3.7.0
+
+# --- Requêtes HTTP ---
+requests>=2.31.0
+
+# --- Configuration ---
+python-dotenv>=1.0.0
+
+# --- Validation ---
+pydantic>=2.0.0
+
+# ============================================================
+# PRODUCTION — Modèle de classification (EfficientNet-B0)
+# ============================================================
+# PyTorch CPU (léger) — décommentez selon votre environnement
+# torch>=2.0.0
+# torchvision>=0.15.0
+#
+# Pour GPU CUDA :
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+# ============================================================
+# LLM Providers
+# ============================================================
+
+# Google Gemini (SDK v2 — recommandé)
+google-genai>=0.8.0
+
+# Mistral AI (optionnel)
+# mistralai>=1.0.0
+
+# ============================================================
+# OPTIONNELS — Modèles médicaux avancés
+# ============================================================
+# MONAI (segmentation médicale avancée)
+# monai>=1.3.0
+
+# Hugging Face Transformers (MedSAM, BioViL, etc.)
+# transformers>=4.35.0
+
+# SimpleITK (DICOM, NIfTI)
+# SimpleITK>=2.3.0
+
+# ============================================================
+# DÉVELOPPEMENT / TESTS
+# ============================================================
+pytest>=7.4.0

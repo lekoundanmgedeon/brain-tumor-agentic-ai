@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  brain-tumor-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: brain-tumor-agentic-ai
+    ports:
+      - "8501:8501"
+    environment:
+      - APP_MODE=${APP_MODE:-DEMO}
+      - LLM_PROVIDER=${LLM_PROVIDER:-mock}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY:-}
+      - PUBMED_EMAIL=${PUBMED_EMAIL:-demo@example.com}
+      - ENABLE_PUBMED=${ENABLE_PUBMED:-false}
+      - ENABLE_NCI_FALLBACK=${ENABLE_NCI_FALLBACK:-true}
+    volumes:
+      # Persistance des uploads et outputs entre les redémarrages
+      - ./uploads:/app/uploads
+      - ./outputs:/app/outputs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Service optionnel : Nginx en reverse proxy (décommentez si besoin)
+  # nginx:
+  #   image: nginx:alpine
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/conf.d/default.conf
+  #   depends_on:
+  #     - brain-tumor-ai
+
+volumes:
+  uploads:
+  outputs:
